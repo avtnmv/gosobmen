@@ -59,7 +59,7 @@
             <div>
                 <div class="header__exchange">
 
-                    <div class="currency-bg">
+                    <div class="currency-bg-first">
                     <div class="header__exchange-block">
                         <div class="custom-select city-select">
                             <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -125,8 +125,12 @@
                         <input type="text" id="amount" class="header__exchange-input" placeholder="0.00" 
                             inputmode="decimal" pattern="[0-9]*[.]?[0-9]*" 
                             onkeypress="return validateInput(event)" 
-                            oninput="updateReceivedAmount()">
+                            oninput="updateReceivedAmount()"
+                            >
+                            
                         <div id="amount-hints" class="header__exchange-hints"></div>
+                        <span class="error">min. 1000  max. 350000 </span>
+                       
                     </div>
                 </div>
                 
@@ -148,7 +152,9 @@
                                     </div>
                                 </div>
                                 <div class="custom-select__options" id="receive-select-options"></div>
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -544,6 +550,40 @@
                     </a>
                 </div>
         </div>
+
+        <div class="map-section">
+            <h2 class="map-title">Наши адреса</h2>
+            <div class="map-container">
+                <div class="map">
+                    <script type="text/javascript" charset="utf-8" async
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae3ababe0be5c8854d0bb2d38290a63d8ee8c73be0f5a18aeaf7d19ab1ba5fe9f&amp;width=700&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
+                    </script>
+                </div>
+        
+                <div class="map-text">
+                    <div>
+                        <p><strong>Адреса офисов «ГОСОБМЕН»</strong></p> 
+                        <p>Посетите наши офисы в Турции:</p> 
+                         <p>Стамбул, Анталия, Алания, Мерсин, Бодрум</p>
+                    </div>
+
+        
+                    <div>
+                        <p><strong>Рабочий день офисов:</strong></p> 
+                        <p>Пн-Сб с 10:00 до 18:00</p>
+                        <p>Воскресенье – выходной.</p>
+                    </div>
+
+                    <div>
+                        <p><strong>Контакты администратора:</strong></p>
+                        <a href="https://t.me/gosobmen_admin" target="_blank">@gosobmen_admin</a>
+                         <a href="">+7 991 674 4956</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
         <div class="faq container">
             <h2 class="heading">Есть Вопросы?</h2>

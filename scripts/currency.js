@@ -206,7 +206,6 @@ async function updateReceivedAmount() {
 
     if (!amount || amount <= 0 || isNaN(amount) || !currency || !receiveCurrency) {
         outputElement.style.opacity = '0';
-        outputElement.style.width = '0';
         return;
     }
 
@@ -215,7 +214,6 @@ async function updateReceivedAmount() {
         if (exchangeRates?.rate) {
             outputElement.textContent = (amount * exchangeRates.rate);
             outputElement.style.opacity = '1';
-            outputElement.style.width = 'auto';
         } else {
             outputElement.textContent = "Ошибка курса";
         }
@@ -281,5 +279,58 @@ async function fetchExchangeRates(fromCurrency, toCurrency, amount) {
     } catch (error) {
         console.error("Ошибка при запросе курса:", error);
         return null;
+    }
+}
+
+// Добавленный код для управления ошибкой и высотой блока
+document.getElementById('amount').addEventListener('input', function() {
+    const amount = parseFloat(this.value);
+    const errorElement = document.querySelector('.error');
+    const currencyBg = document.querySelector('.currency-bg');
+
+    if (isNaN(amount)) {
+        errorElement.style.display = 'none';
+        currencyBg.classList.remove('has-error');
+        return;
+    }
+
+    if (amount < 1000 || amount > 350000) {
+        errorElement.style.display = 'block';
+        currencyBg.classList.add('has-error');
+    } else {
+        errorElement.style.display = 'none';
+        currencyBg.classList.remove('has-error');
+    }
+});
+
+async function updateReceivedAmount() {
+    const amountInput = document.getElementById("amount");
+    const amount = parseFloat(amountInput.value);
+    const currency = document.querySelector(".currency-select .custom-select__selected")?.dataset.value;
+    const receiveCurrency = document.querySelector("#receive-selected")?.dataset.value;
+    const outputElement = document.getElementById("received-amount");
+    const currencyMarginTop = document.querySelector(".currency-margin-top");
+
+    if (!amount || amount <= 0 || isNaN(amount) || !currency || !receiveCurrency) {
+        outputElement.style.opacity = '0';
+        outputElement.textContent = ''; // Очищаем текст
+        currencyMarginTop.style.height = '90px'; // Возвращаем высоту к 90px
+        return;
+    }
+
+    try {
+        const exchangeRates = await fetchExchangeRates(currency, receiveCurrency, amount);
+        if (exchangeRates?.rate) {
+            outputElement.textContent = (amount * exchangeRates.rate);
+            outputElement.style.opacity = '1';
+            currencyMarginTop.style.height = '160px'; // Увеличиваем высоту до 160px
+        } else {
+            outputElement.textContent = "Ошибка курса";
+            currencyMarginTop.style.height = '90px'; // Возвращаем высоту к 90px
+        }
+    } catch (error) {
+        console.error("Ошибка:", error);
+        outputElement.textContent = "Ошибка";
+        currencyMarginTop.style.height = '90px'; // Возвращаем высоту к 90px
     }
 }

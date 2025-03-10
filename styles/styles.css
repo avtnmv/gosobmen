@@ -17,6 +17,9 @@
     align-items: center;
     gap: 10px;
 }
+.exchange__logo-text{
+    font-weight: 600;
+}
 .exchange__logo-image{
     width: clamp(45px, 5vw, 68px);
     height: clamp(35px, 4vw, 50px);
@@ -120,7 +123,7 @@
     gap: 12px;
     text-align: left;
     position: relative;
-    min-height: 75px; 
+    min-height: 60px; 
 }
 
 .header__exchange-label {
@@ -130,7 +133,7 @@
 }
 .custom-select {
     position: relative;
-    width: 205px;
+    width: 420px;
     min-height: 45px;
     background-color: #fff;
     border: 1px solid #fff;
@@ -143,9 +146,9 @@
 }
 
 .receive-select {
-    width: auto;
-    margin-left: 5px; 
-    padding: 0 5px;
+    width: 420px;
+
+    padding: 0 10px;
 }
 
 
@@ -158,12 +161,23 @@
     background: #fff;
     padding: 6px;
     color: black;
+    justify-content: space-between; /* Распределение пространства между элементами */
+    width: 400px;
+}
+
+.custom-select__icon {
+    margin-right: 8px; /* Отступ между иконкой и текстом */
+}
+
+.custom-select__text {
+    flex-grow: 1; /* Текст занимает все доступное пространство */
 }
 
 .header__custom-select-arrow {
     width: 15px;
     pointer-events: none;
     transition: transform 0.3s;
+    margin-left: 8px; /* Отступ между текстом и стрелкой */
 }
 
 .custom-select__options {
@@ -186,15 +200,16 @@
 }
 
 .header__exchange-input {
-    width: 195px;
+    width: 420px;
     height: 45px;
-    background-color: #032D71;
+    background-color: white;
     border: none;
     padding: 0 15px;
     font-size: 16px;
     outline: none;
     text-align: right;
-    color: white;
+    color: black;
+    border-radius: 10px;
 }
 
 .header__exchange-line {
@@ -203,7 +218,7 @@
     justify-content: space-between;
     width: 420px;
     color: white;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
 }
 
 .header__exchange-received-amount {
@@ -247,17 +262,44 @@
 .currency-bg{
     background-color: #032D71;
     width: 460px;
-    height: 135px;
+    height: 160px;
     padding: 20px;
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    transition: height 0.3s ease; 
+    padding-top: 22px;
+}
+.currency-bg.has-error {
+    height: 190px; 
+}
+.error{
+    text-align: end;
+  padding-right: 10px;
+  color: #FA2222;
+  display: none; 
+}
+#received-amount{
+    width: 420px;
+    margin-top: 20px;
+    text-align: end;
+    padding-right: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 .currency-margin-bottom{
     margin-bottom: -33px;
 }
-.currency-margin-top{
+.currency-margin-top {
     margin-top: -33px;
+    height: 90px;
+    transition: height 0.3s ease; /* Плавное изменение высоты */
 }
 .exchange__icon-svg{
     background-color: #032D71;
@@ -824,6 +866,80 @@
 .text-decor{
     text-decoration: underline;
 }
+.map-container{
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.map {
+    border-radius: 20px;
+    overflow: hidden; /* Обрезает углы */
+    height: 400px;
+    position: relative;
+    max-width: 700px;
+}
+.map-text {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.map-section{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.map-text {
+    background: #032D71;
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 400px; 
+    color: white;
+    justify-content: space-between;
+}
+
+.map-text strong {
+    font-size: 20px;
+    color: white;
+}
+
+.map-text a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.map-text a {
+    text-decoration: underline;
+}
+.map-title{
+    font-size: clamp(35px, 4vw, 60px);
+    color: #032D71;
+    margin-top: 96px;
+    margin-bottom: 32px;
+}
+
+.currency-bg-first{
+    background-color: #032D71;
+    width: 460px;
+    height: 85px;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.currency-margin-top {
+    margin-top: -33px;
+    height: 90px;
+  }
 @media screen and (max-width: 768px){
     .exchange{
         background-image: url(../assets/images/header-mobile-bg.png);
@@ -873,11 +989,11 @@
         width: 340px;
     }
     .custom-select{
-        width: 130px;
+        width: 320px;
     }
     .header__exchange-input{
-        width: 130px;
-        padding: 0;
+        width: 320px;
+        padding-right: 10px;
     }
     .header__exchange-line{
         width: 320px;
@@ -1083,6 +1199,49 @@
     }
     .faq{
         margin-top: 64px;
+    }
+    .map-container{
+        width: 340px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    .map {
+        border-radius: 20px;
+        overflow: hidden; /* Обрезает углы */
+        height: 400px;
+        position: relative;
+        width: 340px;
+    }
+    .map-text strong{
+        font-size: 18px;
+    }
+    .map-text{
+        font-size: 16px;
+    }
+    .map-title{
+        margin: auto;
+        width: 340px;
+        margin-top: 64px;
+        margin-bottom: 24px;
+
+    }
+    .currency-bg-first{
+        width: 340px;
+        padding-left: 10px ;
+    }
+    .currency-preview{
+        width: 300px;
+    }
+    .error{
+        width: 320px;
+        padding-right: 10px;
+    }
+    #received-amount{
+        width: 320px;
+        padding-right: 10px;
     }
 }
 
