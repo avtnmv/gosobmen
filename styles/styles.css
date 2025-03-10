@@ -593,6 +593,156 @@
     color: white;
     margin-bottom: 32px;
 }
+.actual-currency__content{
+    width: 585px;
+    height: 620px;
+    background-image: url(../assets/images/actual-accurancy-bg.webp);
+    background-size: cover;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.actual-currency__title{
+    width: 435px;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 32px;
+}
+.actual-currency__text{
+    width: 305px;
+    color: white;
+    font-size: 20px;
+}
+.actual-accurancy-link{
+    background-color: #fff;
+    color: #032D71;
+    width: 280px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.actual-accurancy-icon{
+    fill: #032D71;
+}
+.currency-rates__button-two {
+    background: #fff;
+    width: 250px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+    transition: .3s ease-in-out;
+}
+
+.currency-rates__button-one {
+    width: 250px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+    transition: .3s ease-in-out;
+    background: #fff;
+    
+}
+.currency-rates__button--active {
+    background-color: #3C7DF4;
+    color: black;
+}
+.currency-rates__buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.currency-rates__buttons-row {
+    display: flex;
+    gap: 10px;
+}
+
+.currency-rates__image-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 160px;
+    height: 125px;
+    border-radius: 10px;
+    background-image: url(../assets/images/actual-courses-bg.webp);
+    background-size: cover;
+    background-position: center;
+    justify-content: end;
+
+}
+.currency-rates__image-group{
+    display: flex;
+    gap: 10px;
+}
+.currency-rates__images{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 560px;
+    background-color: #032D71;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 30px;
+}
+.currency-rates__text{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.actual-courses-link{
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    color: white;
+    height: 70px;
+    background-color: #0851C6;
+    border-radius: 10px;
+    margin-top: 16px;
+    gap: 10px;
+
+    svg{
+        fill: white;
+    }
+}
+.actual-currency{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 32px;
+}
+.currency-rates__images-mobile{
+    display: none;
+}
+.actual-courses-img{
+    display: none;
+}
 @media screen and (max-width: 768px){
     .exchange{
         background-image: url(../assets/images/header-mobile-bg.webp);
@@ -725,6 +875,7 @@
     .our-benefits__item{
         width: 340px;
         padding: 20px;
+        
     }
     .our-benefits__subtitle{
         font-size: 18px;
@@ -741,6 +892,65 @@
         padding: 0;
         width: 340px;
         margin: auto;
+    }
+    .currency-rates__images{
+        display: none;
+    }
+    .currency-rates__images-mobile{
+        display: flex;
+        flex-direction: column;
+        background-color: #032D71;
+        width: 340px;
+        gap: 10px;
+        padding: 30px;
+        border-radius: 20px;
+    }
+    .actual-currency{
+        flex-direction: column;
+    }
+    .currency-rates__buttons-row{
+        flex-direction: column;
+    }
+    .currency-rates__image-item{
+        width: 140px;
+    }
+    .currency-rates__button-two, .currency-rates__button-one{
+        width: 280px;
+    }
+    .actual-courses-link-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+        color: white;
+        height: 45px;
+        background-color: #0851C6;
+        border-radius: 10px;
+        margin-top: 16px;
+        gap: 10px;
+
+        svg{
+            fill: white;
+        }
+    }
+    .actual-currency__content{
+        width: 340px;
+        background-image: none;
+        background-color: #032D71;
+        margin-bottom: 32px;
+    }
+    .actual-currency__title{
+        font-size: 18px;
+        width: 340px;
+        
+    }
+    .actual-currency__text{
+        font-size: 16px;
+    }
+    .actual-courses-img{
+        display: block;
+        margin-top: 16px;
+        margin-bottom: -45px;
     }
 }
 
