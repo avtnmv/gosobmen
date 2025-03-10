@@ -323,14 +323,27 @@ async function updateReceivedAmount() {
         if (exchangeRates?.rate) {
             outputElement.textContent = (amount * exchangeRates.rate);
             outputElement.style.opacity = '1';
-            currencyMarginTop.style.height = '160px'; // Увеличиваем высоту до 160px
+            currencyMarginTop.style.height = '160px';
         } else {
             outputElement.textContent = "Ошибка курса";
-            currencyMarginTop.style.height = '90px'; // Возвращаем высоту к 90px
+            currencyMarginTop.style.height = '90px';
         }
     } catch (error) {
         console.error("Ошибка:", error);
         outputElement.textContent = "Ошибка";
-        currencyMarginTop.style.height = '90px'; // Возвращаем высоту к 90px
+        currencyMarginTop.style.height = '90px'; 
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    initSelects();
+    selectOption('usdt', 'currency');
+    updateReceivedAmount();
+
+    // Устанавливаем значение по умолчанию в 1000
+    const amountInput = document.getElementById('amount');
+    if (amountInput) {
+        amountInput.value = '1000';
+        updateReceivedAmount(); // Обновляем сумму после установки значения
+    }
+});
