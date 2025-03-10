@@ -1,31 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".currency-rates__buttons button");
-    const rateElements = document.querySelectorAll('.currency-rates__text');
+    let ratesData = {};
 
-    let ratesData = {};  // Переменная для хранения данных
-
-    // Функция для загрузки данных
     async function fetchRates() {
         try {
             const response = await fetch("https://tri-prep-shadow-tomatoes.trycloudflare.com/api/v1/rates/");
-
-            if (!response.ok) {
-                throw new Error(`Ошибка HTTP: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
 
             ratesData = await response.json();
             console.log("Данные получены:", ratesData);
 
-            // После загрузки данных обновляем курсы для начального города
             const initialCity = document.querySelector('.currency-rates__button--active')?.dataset.city || "istanbul";
             updateRates(initialCity);
-
         } catch (error) {
             console.error("Ошибка загрузки данных:", error);
         }
     }
 
-    // Функция для обновления курсов
     function updateRates(city) {
         if (!ratesData || Object.keys(ratesData).length === 0) {
             console.error("Данные ещё не загружены!");
@@ -57,22 +48,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const rates = processedRates[city];
 
-        if (rates && rates.length === rateElements.length) {
+        if (!rates) {
+            console.error(`Нет данных для города: ${city}`);
+            return;
+        }
+        document.querySelectorAll('.currency-rates__images, .currency-rates__images-mobile').forEach(container => {
+            const rateElements = container.querySelectorAll('.currency-rates__text');
+
+            if (rates.length !== rateElements.length) {
+                console.error("Несовпадение количества курсов и элементов:", rates.length, rateElements.length);
+                return;
+            }
+
             rateElements.forEach((el, index) => {
                 el.textContent = rates[index];
             });
-        }
+        });
     }
 
-    // Обработчик кликов для кнопок
     buttons.forEach(button => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             buttons.forEach(btn => btn.classList.remove("currency-rates__button--active"));
             this.classList.add("currency-rates__button--active");
             updateRates(this.dataset.city);
         });
     });
 
-    // Загружаем данные при загрузке страницы
     fetchRates();
 });
