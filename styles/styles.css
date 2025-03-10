@@ -743,6 +743,79 @@
 .actual-courses-img{
     display: none;
 }
+.faq{
+    margin-top: 96px;
+}
+.faq-container{
+    background-image: url(../assets/images/faq-bg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    height: 700px;
+}
+.faq-blockr{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    height: 480px;
+}
+
+.faq-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 100px;
+    align-items: end;
+    padding-right: 40px;
+}
+.faq-title{
+    font-size: 28px;
+    width: 430px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 32px;
+}
+.faq-subtitle{
+    font-size: 20px;
+    width: 305px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 32px;
+}
+.faq-tel{
+    display: block;
+    color: white;
+    margin-bottom: 32px;
+    text-decoration: underline;
+    font-size: 20px;
+}
+.faq-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background-color: #fff;
+    color: #032D71;
+    gap: 10px;
+    width: 280px;
+    border-radius: 10px;
+    
+    svg{
+        fill: #032D71;
+    }
+}
+.footer-end{
+    font-size: 16px;
+    width: 527px;
+    color: white;
+    padding-bottom: 40px;
+}
+.faq-block{
+    padding-right: 100px;
+}
+.heading{
+    font-size: clamp(35px, 4vw, 60px);
+    color: #032D71;
+}
 @media screen and (max-width: 768px){
     .exchange{
         background-image: url(../assets/images/header-mobile-bg.webp);
