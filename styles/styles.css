@@ -816,6 +816,13 @@
     font-size: clamp(35px, 4vw, 60px);
     color: #032D71;
 }
+
+.img-footer-mobile{
+    display: none;
+}
+.text-decor{
+    text-decoration: underline;
+}
 @media screen and (max-width: 768px){
     .exchange{
         background-image: url(../assets/images/header-mobile-bg.webp);
@@ -1024,6 +1031,57 @@
         display: block;
         margin-top: 16px;
         margin-bottom: -45px;
+    }
+    .img-footer-mobile{
+        display: block;
+        width: 280px;
+        height: 330px;
+    }
+    .faq-block{
+        background-color: #032D71;
+        border-radius: 20px;
+        padding-right: 0px;
+        align-items: start;
+        padding: 30px;
+        width: 340px;
+    }
+    .faq-container{
+        background-image: none;
+        padding-right: 0px;
+        width: 340px;
+        margin:auto;
+        padding-top: 0px;
+    }
+    .faq-title{
+        font-size: 18px;
+        width: 255px;
+        font-weight: 500;
+        color: white;
+        margin-bottom: 32px;
+    }
+    .faq-subtitle{
+        font-size: 16px;
+        width: 230px;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 32px;
+    }
+    .footer-end{
+        width: 340px;
+        margin: auto;
+        color: #032D71;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        padding-bottom: 0px;
+    }
+    .heading{
+        width: 340px;
+        margin: auto;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    .faq{
+        margin-top: 64px;
     }
 }
 
