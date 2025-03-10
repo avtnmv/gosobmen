@@ -282,7 +282,7 @@
 }
 .header__link{
     width: 460px;
-    height: 45px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,7 +295,7 @@
     font-weight: 500;
 }
 .currency__title{
-    font-size: clamp(35px, 4vw, 60px);
+    font-size: clamp(32px, 4vw, 60px);
     color: #032D71;
     margin-top: 64px;
     margin-bottom: 16px;
@@ -329,6 +329,7 @@
     position: relative;
     width: 294px;
     color: white;
+    padding-left: 25px;
 }
 
 .last-exchange__title {
