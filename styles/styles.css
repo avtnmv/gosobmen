@@ -865,6 +865,7 @@
 }
 .text-decor{
     text-decoration: underline;
+    color: white;
 }
 .map-container{
     max-width: 1200px;

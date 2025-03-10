@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Устанавливаем значение по умолчанию в 1000
     const amountInput = document.getElementById('amount');
     if (amountInput) {
-        amountInput.value = '1000';
+        amountInput.value = '1';
         updateReceivedAmount(); // Обновляем сумму после установки значения
     }
 });
